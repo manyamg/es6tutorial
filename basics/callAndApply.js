@@ -30,3 +30,16 @@ console.log(add.call(this, 1, 2));
 
 // Outputs: 3
 console.log(add.apply(this, [1, 2]));
+
+
+//few more simple examples
+var numbers = [5, 6, 2, 3, 7];
+
+var max = Math.max.apply(null, numbers);
+
+console.log(max);
+// expected output: 7
+
+var min = Math.min.apply(null, numbers);
+
+console.log(min);
