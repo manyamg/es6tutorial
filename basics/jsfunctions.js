@@ -106,6 +106,39 @@ var foo = "foo";
     console.log(innerFoo);
 })(foo);
 
+//Functions function
+function outerFunction () {
+    return function() { return "inner"; };
+}
+
+var whatIsIt = outerFunction();
+
+// Outputs: function() { return "inner"; }
+console.log(whatIsIt);
+
+// Outputs: "inner"
+console.log(whatIsIt());
+
+//example 2 
+function multiply (a, b) {
+    return a * b;
+}
+
+function timesCreator (a) {
+    return function (b) {
+        return multiply(a, b);
+    }
+}
+
+timesTwo = timesCreator(2);
+timesTwelve = timesCreator(12);
+
+// Outputs: 4
+console.log(timesTwo(2));
+
+// Outputs: 24
+console.log(timesTwelve(2));
+
 
 
 

@@ -1,3 +1,90 @@
+var Module = (function () {
+  // code
+})();
+
+var Module = (function () {
+  
+  var privateMethod = function () {
+    // do something
+  };
+
+})(); //privateMethod is not accessible
+
+
+//module returning an object 
+var Module = (function () {
+  
+  return {
+    publicMethod: function () {
+      // code
+    }
+  };
+
+})(); //Module.publicMethod();
+
+//example one 
+var Module = (function () {
+
+  // locally scoped Object
+  var myObject = {};
+
+  // declared with `var`, must be "private"
+  var privateMethod = function () {};
+
+  myObject.someMethod = function () {
+    // take it away Mr. Public Method
+  };
+  
+  return myObject;
+
+})();
+
+//example 2 
+
+var Module = (function () {
+
+  var privateMethod = function () {
+    // private
+  };
+
+  var someMethod = function () {
+    // public
+  };
+
+  var anotherMethod = function () {
+    // public
+  };
+  
+  return {
+    someMethod: someMethod,
+    anotherMethod: anotherMethod
+  };
+
+})();
+
+
+//accessing private methods
+var Module = (function () {
+
+  var _privateMethod = function (message) { // _ is naming convention for private method
+    console.log(message);
+  };
+
+  var publicMethod = function (text) {
+    _privateMethod(text);
+  };
+  
+  return {
+    publicMethod: publicMethod
+  };
+
+})();
+
+// Example of passing data into a private method
+// the private method will then `console.log()` 'Hello!'
+Module.publicMethod('Hello!');
+
+
 var counter = (function(){
     var i = 0;
 

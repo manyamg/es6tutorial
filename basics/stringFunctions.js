@@ -100,3 +100,28 @@ console.log("(5): "      + str.substring(5));  //s are round, and apples are jui
 
   var str = new String("Hello world"); 
 console.log(str.valueOf( ));  //e primitive value of a String object. and value as Hello world
+
+
+//toString
+
+function Color (r, g, b) {
+    this.r = r;
+    this.g = g;
+    this.b = b;
+}
+
+Color.prototype.toString = function () {
+    return "rgb(" + this.r + ", " +
+                    this.g + ", " +
+                    this.b + ")";
+};
+
+var red = new Color(255, 0, 0);
+
+// Alerts: "rgb(255, 0, 0)"
+alert(red);
+
+var message = "Red is: " + red;
+
+// Outputs: "Red is: rgb(255, 0, 0)"
+console.log(message);
