@@ -124,10 +124,14 @@ var nums = {
 
 function sumObjectValues(object){
     var total = 0;
-    for (const key in object) {
-        if (typeof object[k] === "number") {
-             total += object[key];       
+    for (const k in object) {
+        if (typeof object[k] === "number" && object.hasOwnProperty(k)) {
+             total += object[k];       
         }
     }
-
+   return total;
 }
+
+Object.prototype.new = 500 //returns 542 else  if object.hasOwnProperty(k) not checked
+
+console.log(sumObjectValues(nums))
