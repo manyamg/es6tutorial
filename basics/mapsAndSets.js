@@ -152,4 +152,23 @@ for (var x of arr) {
 
 
 
+  //more examples
+  // Private properties store:
+let Person = (() => {
+    let names = new WeakMap;
+    return class {
+      constructor(name) {
+        names.set(this, name);
+      }
+      getName() {
+        return names.get(this);
+      }
+    }
+  })();
+  
+  let person = new Person('Vasya');
+  console.log(person.getName());            // => 'Vasya'
+  for (let key in person) console.log(key); // => only 'getName'
+
+
 
