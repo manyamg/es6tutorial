@@ -113,3 +113,21 @@ const number1 = [1,2,3];
 const number2 =[4,5,6,7]
 const combined =[...number1, ...number2, ...new PersonQuery()]
 console.log(combined);
+
+
+var nums = {
+    a: 10,
+    b: 20,
+    c: "string",
+    d: 12
+}
+
+function sumObjectValues(object){
+    var total = 0;
+    for (const key in object) {
+        if (typeof object[k] === "number") {
+             total += object[key];       
+        }
+    }
+
+}

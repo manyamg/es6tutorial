@@ -13,7 +13,6 @@ Input.prototype.setType = function(type){ // prototype are reusing the methods a
 // new es6 way //behind the scene class proto type inheritence under the good
 //class declartions are not hoisted.
 class Input {
-
     static from(text){ //always top of the code, nice to have 
         return   new Input(text);
       }
@@ -43,5 +42,16 @@ Fruit.prototype.priceInfo = function() {
     ${this.price}`;
 }
 
+Fruit === Fruit.prototype.constructor // true, hence functions are function constructor
 var apple = new Fruit("Apple", 2)
 console.log(apple.priceInfo());
+
+class Fruit {
+    constructor(title, price) {
+        this.title = title;
+        this.price = price;
+    }
+    priceInfo() {
+        retrun `Price of the ${this.title} is ${this.price}`;
+    }
+}
