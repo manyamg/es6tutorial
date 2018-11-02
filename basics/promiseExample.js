@@ -135,3 +135,22 @@ step1()
 // }
 
 // run();
+
+
+// promide finally 
+//Promise.finally()
+//A Promise chain can either succeed and reach the final .then() or fail and trigger a .catch() block. In some cases, you want to run the same code regardless of the outcome — for example, to clean up, remove a dialog, close a database connection etc.
+
+//The .finally() prototype allows you to specify final logic in one place rather than duplicating it within the last .then() and .catch():
+
+function doSomething() {
+  doSomething1()
+  .then(doSomething2)
+  .then(doSomething3)
+  .catch(err => {
+    console.log(err);
+  })
+  .finally(() => {
+    // finish here!
+  });
+}

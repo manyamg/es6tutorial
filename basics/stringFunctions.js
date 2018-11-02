@@ -125,3 +125,27 @@ var message = "Red is: " + red;
 
 // Outputs: "Red is: rgb(255, 0, 0)"
 console.log(message);
+
+//string include
+const str = 'Hello everybody, my name is Aurelio De Rosa.';
+let result = str.includes('Aurelio');
+
+// prints "true"
+console.log(result);
+
+result = str.includes('Hello', 10);
+
+// prints "false"
+console.log(result);
+
+//string repeat 
+const str = 'hello';
+let result = str.repeat(3);
+
+// prints "hellohellohello"
+console.log(result);
+
+result = str.repeat(0);
+
+// prints ""
+console.log(result);

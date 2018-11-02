@@ -136,7 +136,7 @@ const directions = {
 
 
 
-//symbols as keys doesn’t guarantee privacy. 
+//symbols as keys doesn’t guarantee privacy and they never clash with String keys
 const user = {};
 const email = Symbol();
 
@@ -214,5 +214,52 @@ let Person = (() => {
   console.log(person[Symbol('name')]);      // => undefined, symbols are uniq
   for (let key in person) console.log(key); // => nothing, symbols are not enumerable
 
-  
+//symbols as iterator
+  const band = ['Freddy', 'Brian', 'John', 'Roger'];
+const iterator = band[Symbol.iterator]();
 
+iterator.next().value;
+// <-- { value: "Freddy", done: false }
+iterator.next().value;
+// <-- { value: "Brian", done: false }
+iterator.next().value;
+// <-- { value: "John", done: false }
+iterator.next().value;
+// <-- { value: "Roger", done: false }
+iterator.next().value;
+// <-- { value: undefined, done: true }
+
+//symbols with computed method name:
+
+let Person = {
+  name: "John",
+  age: 14,
+  location: "New York",
+  [Symbol()]: function() {
+          return this.age >= 18;
+  }
+}
+
+let canVote = Object.getOwnPropertySymbols(Person)[0];
+Person[canVote](); // false
+
+
+//more example 
+const age = Symbol("age");
+class Person {
+        constructor(value) {
+                this[age] = value;
+        }
+        getAge() {
+                console.log(this[age]);
+        }
+}
+const jack = new Person(23);
+console.log(jack);
+// Person {}
+console.log(jack.age);
+// undefined
+console.log(jack[Symbol("age")]);
+// undefined
+jack.getAge();
+// 23

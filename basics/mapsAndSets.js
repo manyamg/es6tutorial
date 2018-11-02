@@ -89,6 +89,10 @@ set.forEach((value, valueAgain, set) => {
   alert(value);
 });
 
+
+//Map and Set's references to objects are strongly held and will not allow for garbage collection. 
+//This can get expensive if maps/sets reference large objects that are no longer needed,ES6 also introduces two new weak collections called WeakMap and WeakSet. 
+//These ES6 collections are 'weak' because they allow for objects which are no longer needed to be cleared from memory.
 // The same methods Map has for iterators are also supported:
 
 // set.keys() – returns an iterable object for values,

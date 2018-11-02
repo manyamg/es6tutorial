@@ -109,3 +109,55 @@ for(const key in arr) {
 for(const value of arr) {
     console.log(value) //a,b,c 
 }
+
+
+//avoid // typically arrayLike is arguments var arr = [].slice.call(arrayLike); use Array.from(arrvalues, arrMapper)
+function double(arr) {
+    return Array.from(arguments, function(elem) {
+      return elem * 2;
+    });
+  }
+  
+  const result = double(1, 2, 3, 4);
+  
+  // prints [2, 4, 6, 8]
+  console.log(result);
+
+  //array find 
+  const arr = [1, 2, 3, 4];
+const result = arr.find(function(elem) { return elem > 2; });
+
+// prints "3" because it’s the first
+// element greater than 2
+console.log(result);
+
+//findIndex example
+const arr = [1, 2, 3, 4];
+const result = arr.findIndex(function(elem) {return elem > 2;});
+
+// prints "2" because is the index of the
+// first element greater than 2
+console.log(result);
+
+
+//Array.prototype.keys() returns iterator
+const arr = [1, 2, 3, 4];
+const iterator = arr.keys();
+
+// prints "0, 1, 2, 3", one at a time, because the
+// array contains four elements and these are their indexes
+let index = iterator.next();
+while(!index.done) {
+  console.log(index.value);
+  index = iterator.next();
+}
+
+
+const arr = new Array(6);
+// This statement fills positions from 0 to 2
+arr.fill(1, 0, 3);
+// This statement fills positions from 3 up to the end of the array
+arr.fill(2, 3);
+
+// prints [1, 1, 1, 2, 2, 2]
+console.log(arr);
