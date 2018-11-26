@@ -1,5 +1,5 @@
 function* oneToThree(){
-import function from './moduleExample';
+//import function from './moduleExample';
     yield 1;
     yield 2;
     yield 3;
