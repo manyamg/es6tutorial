@@ -21,6 +21,8 @@
     "jsonpath": "^1.0.0",
     "node-fetch": "^2.2.0",
     "nodepath": "0.0.1",
-    "path-parse": "^1.0.6"
+    "path-parse": "^1.0.6",
+    "randomstring": "^1.1.5",
+    "shelljs": "^0.8.3"
   }
 }
