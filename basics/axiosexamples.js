@@ -1,7 +1,7 @@
 /**
  * Created by manyamg on 03/12/2018.
  */
-import axios from 'axios';
+//import axios from 'axios';
 
 axios.defaults.baseURL = "http://jsonplaceholder.typicode.com"
 
@@ -90,11 +90,11 @@ axios.all([
 
 
 //using Promise.all
-Promise.all([
-    axios.get('http://jsonplaceholder.typicode.com/todos'),
-    axios.delete('https://jsonplaceholder.typicode.com/posts/1')
-])
-    .then((function([userResponse, reposResponse]) {
-        console.log(userResponse.data);
-        console.log(reposResponse.data);
-    }))
+// Promise.all([
+//     axios.get('http://jsonplaceholder.typicode.com/todos'),
+//     axios.delete('https://jsonplaceholder.typicode.com/posts/1')
+// ])
+//     .then((function([userResponse, reposResponse]) {
+//         console.log(userResponse.data);
+//         console.log(reposResponse.data);
+//     }))
