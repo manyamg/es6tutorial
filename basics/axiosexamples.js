@@ -98,3 +98,23 @@ axios.all([
 //         console.log(userResponse.data);
 //         console.log(reposResponse.data);
 //     }))
+
+
+function makeGetRequest() {
+    return axios.get('http://jsonplaceholder.typicode.com1/todos', {
+            params: {
+                id: 1
+            }
+        }).then(response => response)
+.catch(error => {
+        if(error.request) {
+        return Promise.reject(`Get request was made but no response was recieved\n ${error}`);
+    } else if (error.response) {
+        return error.response
+    } else {
+        return Promise.reject(`Get request failed. \n ${error}`)}
+})
+}
+
+
+makeGetRequest().then(result => console.log(result.data))
